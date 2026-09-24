@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --gfg-green: #0f8a55;
+    --gfg-dark: #081f1d;
+    --gfg-soft: #edf9f2;
+    --gfg-line: rgba(15, 138, 85, 0.12);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink antialiased;
+    font-family: Inter, system-ui, sans-serif;
+  }
+
+  :focus-visible {
+    outline: 3px solid #0f8a55;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-200;
+  }
+  .btn-primary {
+    @apply btn bg-gfg-green text-white hover:bg-[#0d7247];
+  }
+  .btn-signal {
+    @apply btn bg-signal text-ink hover:bg-signal-deep;
+  }
+  .btn-quiet {
+    @apply btn border border-[#D7E6E0] bg-white text-ink hover:border-gfg-green hover:text-gfg-green;
+  }
+  .field {
+    @apply w-full rounded-lg border border-[#D5E5DE] bg-white px-3 py-2.5 text-sm
+           placeholder:text-ink/40 focus:border-gfg-green focus:outline-none;
+  }
+  .panel {
+    @apply rounded-2xl border border-[#E1ECE7] bg-white shadow-panel;
+  }
+  .gfg-card {
+    @apply rounded-2xl border border-[#E8EFEA] bg-white p-5 shadow-panel transition-all hover:-translate-y-0.5 hover:border-gfg-green/30 hover:shadow-lg;
+  }
+}
+
+/* Rendered markdown */
+.prose-note h2 {
+  @apply mt-8 mb-2 font-display text-xl font-semibold;
+}
+.prose-note h3 {
+  @apply mt-6 mb-2 font-display text-lg font-semibold;
+}
+.prose-note p {
+  @apply my-3 leading-relaxed text-ink/80;
+}
+.prose-note ul {
+  @apply my-3 list-disc space-y-1 pl-5 text-ink/80;
+}
+.prose-note ol {
+  @apply my-3 list-decimal space-y-1 pl-5 text-ink/80;
+}
+.prose-note a {
+  @apply underline decoration-gfg-green underline-offset-2;
+}
+.prose-note code {
+  @apply rounded bg-ink/5 px-1.5 py-0.5 font-mono text-[0.85em];
+}
+.prose-note pre {
+  @apply my-4 overflow-x-auto rounded-lg bg-ink p-4 text-sm text-paper;
+}
+.prose-note pre code {
+  @apply bg-transparent p-0 text-paper;
+}
+.prose-note strong {
+  @apply font-semibold text-ink;
+}
